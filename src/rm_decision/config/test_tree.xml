@@ -1,0 +1,25 @@
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <Sequence name="check_and_navigate">
+      <!-- Step 1: 导航到初始点 (4,3) -->
+      <!-- <NavigateToGoal goal_x="4.0" goal_y="3.0" goal_orientation="1.0"/> -->
+      <NavigateToGoal goal_x="4.0" goal_y="3.0" goal_orientation="1.0"/>
+
+      <!-- Step 2: 检测弹丸数 -->
+      <RepeatUntilFail>
+        <CheckAmmunitionCount threshold="30"/>  <!-- 设置弹丸阈值 -->
+        <!-- 如果弹丸数不足，导航到 () 补充 -->
+        <!-- <NavigateToGoal goal_x="1.0" goal_y="1.0" goal_orientation="1.0"/> -->
+      </RepeatUntilFail>
+
+      <NavigateToGoal goal_x="0.0" goal_y="1.0" goal_orientation="1.0"/>
+
+      <RepeatUntilFail>
+        <CheckAmmunitionCount_2 threshold="400"/>  <!-- 设置弹丸阈值 -->
+      </RepeatUntilFail>
+
+       <NavigateToGoal goal_x="3.0" goal_y="3.0" goal_orientation="1.0"/>
+
+    </Sequence>
+  </BehaviorTree>
+</root>
